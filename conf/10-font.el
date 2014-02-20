@@ -1,0 +1,15 @@
+;;;; font
+(let* ((fontset-name "myfonts")
+       (size 12)
+       (asciifont "Inconsolata")
+       (jpfont "Ricty")
+       (font (format "%s-%d:weight=normal:slant=normal" asciifont size))
+       (fontspec (font-spec :family asciifont))
+       (jp-fontspec (font-spec :family jpfont))
+       (fsn (create-fontset-from-ascii-font font nil fontset-name)))
+  (set-fontset-font fsn 'japanese-jisx0213.2004-1 jp-fontspec)
+  (set-fontset-font fsn 'japanese-jisx0213-2 jp-fontspec)
+  (set-fontset-font fsn 'katakana-jisx0201 jp-fontspec))
+
+(add-to-list 'default-frame-alist '(font . "fontset-myfonts"))
+(set-face-font 'default "fontset-myfonts")

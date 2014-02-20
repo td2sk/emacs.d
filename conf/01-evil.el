@@ -1,0 +1,10 @@
+(require 'my-package-helper)
+
+(my/package-sync 'evil)
+(require 'evil)
+(evil-mode 1)
+(define-key evil-insert-state-map (kbd "C-j") 'evil-normal-state)
+(define-key evil-insert-state-map (kbd "C-k") nil)
+(define-key evil-insert-state-map (kbd "C-e") nil)
+(define-key evil-insert-state-map (kbd "C-p") nil)
+(define-key evil-insert-state-map (kbd "C-n") nil)
